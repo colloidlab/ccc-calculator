@@ -3,16 +3,16 @@ import numpy as np
 import yaml
 import ccc
 
-# load parameters
+# load parameters from the YAML file
 with open("parameters.yaml", "r") as file:
     parameters = yaml.load(file, Loader=yaml.FullLoader)
 
 viscosity = float(parameters["viscosity"])
-eps0 = float(parameters["eps0"])
+eps0 = ccc.constants["eps0"]
 epsilon = float(parameters["epsilon"]) * eps0
-e0 = float(parameters["e0"])
-Na = float(parameters["Na"])
-kT = float(parameters["kb"]) * float(parameters["temperature"])
+e0 = ccc.constants["e0"]
+Na = ccc.constants["Na"]
+kT = ccc.constants["kb"] * float(parameters["temperature"])
 hamaker = float(parameters["hamaker"])
 
 # load data
@@ -31,13 +31,16 @@ valences.append(np.array(parameters["salt"]["valence"], dtype=int))
 valences.append(np.array(parameters["background1"]["valence"], dtype=int))
 valences.append(np.array(parameters["background2"]["valence"], dtype=int))
 
-valences = np.array(valences)  # matrix of valences for salt and background electrolytes
+# matrix of valences for salt and background electrolytes
+valences = np.array(valences)
+# background electrolyte valences
 valences_back = valences[1:]
 
 conc_back1 = float(parameters["background1"]["concentration"])
 conc_back2 = float(parameters["background2"]["concentration"])
 
-conc_back = np.array([conc_back1, conc_back2])  # background electrolytes
+# background electrolytes
+conc_back = np.array([conc_back1, conc_back2])
 
 # calculate ionic strengths
 is_salt = ccc.ionic_strength_coeff(valences[0]) * concentration
@@ -59,7 +62,7 @@ sigma = abs(epsilon * kappa * potential)
 
 
 # calculate CCIS from from surface charge density for all concentrations
-# equation from Trefalt et al., Langmuir 2017, 33, 7, 1695-1704
+# equation (25) from Trefalt et al., Langmuir 2017, 33, 7, 1695-1704
 # https://doi.org/10.1021/acs.langmuir.6b04464
 ccis = (
     (

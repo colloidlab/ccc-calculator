@@ -2,6 +2,13 @@
 
 import numpy as np
 
+constants = {
+    "Na": 6.02214e23,  # Avogadro number
+    "kb": 1.38065e-23,  # Boltzmann constant
+    "e0": 1.60217e-19,  # elementary charge in As
+    "eps0": 8.854e-12,  # vacuum dielectric permittivity
+}
+
 
 def find_roots(y, x):
     """
