@@ -12,10 +12,11 @@ CCC calculator calculates critical coagulation concentration (CCC) based on the 
 ### Make a virtual environment and install dependencies
 ```sh
 python -m venv env
+source env/bin/activate
 pip install -r requirements.txt
 ```
 
-
+### Run program with
 `python ccc_calculator.py`
 
 ### Input
@@ -57,5 +58,31 @@ epsilon: 78.54 # solvent dielectric constant
 
 ### Output
 
+Output is given as *yaml* formatted terminal output. If you wanna save it into file you can use unix tee command `python ccc_calculator.py | tee results.yaml`. Depending on the system, several critical coagulation concentrations can be observed. For every critical coagulation concentration (CCC) that is found also critical coagulation ionic strength (CCIS), surface potential (potential), surface charge density (sigma) are given. A sample output is given below.
+
+```yaml
+# Found 3 CCCs.
+
+CCC 1:       2.80e-03 M
+CCIS 1:       2.90e-03 M
+Potential 1: 3.04e-03 mV
+Sigma 1:     3.74e-04 mC/m^2
+
+CCC 2:       7.04e-03 M
+CCIS 2:       7.14e-03 M
+Potential 2: -3.81e-03 mV
+Sigma 2:     -7.35e-04 mC/m^2
+
+CCC 3:       8.88e-01 M
+CCIS 3:       8.88e-01 M
+Potential 3: -1.27e-02 mV
+Sigma 3:     -2.74e-02 mC/m^2
+
+Parameters:
+  Hamaker constant: 1.00e-21 J
+  Viscosity: 8.90e-04 Pas
+  Dielectric constant: 78.54
+  Data file: mobility.txt
+```
 
 
