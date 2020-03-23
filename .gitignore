@@ -1,0 +1,11 @@
+# Python compiled files
+*.pyc
+
+# cache
+__pycache__/
+
+# Environments
+env/
+
+# Text Editor
+.vscode/

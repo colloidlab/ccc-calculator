@@ -1,0 +1,24 @@
+# data input file
+filename: mobility.txt
+
+# electrolyte composition
+salt: # electrolyte whose concentration is in data input file
+  valence: [1,-1] # valence of z:y electrolyte in format [z,-y] 
+background1:  # background electrolyte 1
+  valence: [1,-1]
+  concentration: 1.0e-4 # concentration in M
+background2:  # background electrolyte 2
+  valence: [1,-1] #
+  concentration: 0
+
+# particle and solvent properties
+hamaker: 1.0e-21 # Hamaker constant of particles in J
+temperature: 298 # temperature in K
+viscosity: 0.89e-3 # solvent viscosity in Pas
+epsilon: 78.54 # solvent dielectric constant
+
+# other constants
+Na: 6.02214e+23 # Avogadro number
+kb: 1.38065e-23 # Boltzmann constant
+e0: 1.60217e-19 # elementary charge in As
+eps0: 8.854e-12 # vacuum dielectric permittivity
