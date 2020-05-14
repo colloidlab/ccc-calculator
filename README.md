@@ -6,7 +6,7 @@
 
 Version: 0.1.0
 
-CCC calculator calculates critical coagulation concentration (CCC) based on the electrophoretic mobility data. The CCC is the concentration above which suspensions are not stable and rapid aggregation of colloidal particles is observed. The calculation method is based on equation (25) from Trefalt et al., Langmuir 2017, 33, 7, 1695-1704 (https://doi.org/10.1021/acs.langmuir.6b04464). For the conversion of electrophoretic mobility to electrokinetic potential Smoluchowski model is used. For the conversion between surface charge density and surface potential Debye-Huckel model is used.
+CCC calculator calculates critical coagulation concentration (CCC) based on the electrophoretic mobility data. The CCC is the concentration above which suspensions are not stable and rapid aggregation of colloidal particles is observed. The calculation method is based procedure published in Galli et al., Colloids Interfaces 2020, 4(2), 20 (https://doi.org/10.3390/colloids4020020). For the conversion of electrophoretic mobility to electrokinetic potential Smoluchowski model is used. For the conversion between surface charge density and surface potential Debye-Huckel model is used.
 
 ## Usage
 
